@@ -20,6 +20,27 @@ const Formulario = () => {
                         className="nameOwner"
                         placeholder="Owner's name"
                     />
+                    <label>Date: </label>
+                    <input
+                        type="date"
+                        name="date"
+                        className="date"
+                    />
+                    <label>Deportune Time: </label>
+                    <input
+                        type="time"
+                        name="hour"
+                        className="hour"
+                    />
+                    <label>Symptom: </label>
+                    <textarea
+                        className="coment"
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        className="button-primary"
+                    >Add Appointment</button>
                 </form>
 
             </Fragment>
