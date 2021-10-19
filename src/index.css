@@ -14,6 +14,10 @@ body {
   padding-bottom: 5rem;
 }
 
+h2{
+  text-align: center;
+}
+
 .container{
   display: grid;
   max-width: 100%;
@@ -22,7 +26,7 @@ body {
                       "column-1 column-2 ";
   
   grid-template-columns: 50% 50%;
-  grid-template-rows: 150px 780px;
+  grid-template-rows: 20% 80%;
                       
 }
 
@@ -71,7 +75,7 @@ label {
   display: flex;
   flex-direction: column;
   height: 30px;
-  width: 250px;
+  width: 350px;
   margin: 8px 0;
 }
 
@@ -81,25 +85,22 @@ label {
   /* flex-direction: column; */
   width: 250px;
   height: 30px;
-  width: 250px;
+  width: 350px;
   margin: 8px 0;
 }
 
 .coment{
   display:flex;
   height: 100px;
-  width: 250px;
+  width: 350px;
+  margin: 8px 0;
 }
 
 .button-primary {
   font-size: 15px;
-  font-weight: 200;
   font-family:'Roboto Slab', serif; ;
-  /* letter-spacing: 1px; */
-  /* padding: 13px 50px ; */
   height: 50px;
-  width: 250px;
-  outline: 0;
+  width: 350px;
   border: 1px solid black;
   cursor: pointer;
   position: relative;
