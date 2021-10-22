@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 
 
 
@@ -123,6 +123,16 @@ label {
 .button-primary:hover::after {
   top: 0px;
   left: 0px;
+}
+
+.alert-error{
+  background-color: white;
+  color: rgb(2, 2, 2);
+  /* padding: 1rem; */
+  font-size: 1.5rem;
+  /* text-transform: uppercase; */
+  border: 1px black solid;
+  text-align: center;
 }
 
 /* .lista-citas .media {
