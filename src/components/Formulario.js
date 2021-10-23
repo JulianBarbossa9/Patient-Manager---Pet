@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from "react";
 import {v4 as uuidv4} from 'uuid';// Esto es una libreria que ayuda a crear id se uso (nmp i uuid) en la consola
 
-const Formulario = () => {
+const Formulario = ({createAppoint}) => {
 
 /**
  * Crear State de las citas
@@ -14,11 +14,10 @@ const [appoint, modifyAppoint] = useState({ //Objeto con ciertas propiedades
     symptom: ''
 });
 
- 
+
 /**
  * Creo otro state cuando no hayan llenado todo 
  */
-
 const [error, modifyError] = useState(false);
 
 // Función que se ejecuta cada que el usuario escribe un input
@@ -33,33 +32,40 @@ const handleChange = (e) =>{
 
 const submitAppoint = e =>{
     e.preventDefault();
-
+    
     //Validar la info
     if(pet.trim() === '' || ownerName.trim() === '' || date.trim() === '' || hour.trim() === '' || symptom.trim() === ''){
         modifyError(true);
         return;
     }
-
-    // Eliminar mensaje de error
+    
+    // Eliminar mensaje de error previo
     modifyError(false);
-
+    
     //Asignar un ID
     appoint.id =  uuidv4();//Aca llamo la libreria para crear id, esto para cuando la estemos listando para el agendamiento necesitan el "key" ya que es un elemento unico
     // console.log(appoint);
-
-
+    
+    
     // Crear la cita --- colocarla en el state principal
-
-
+    createAppoint(appoint);
+    
     //Reiniciar el Form
+    modifyAppoint({
+        pet: '',
+        ownerName: '',
+        date: '',
+        hour: '',
+        symptom: ''
+    })
 }
 
 //Extraer los valores ---> la otra forma es appoint.pet, appoint.ownerName
 const {pet, ownerName, date, hour, symptom } = appoint; 
 
-    return ( 
-            <Fragment>
-                <h2>Create Appointment</h2>
+return ( 
+    <Fragment>
+               
 
                 <form
                     onSubmit={submitAppoint}

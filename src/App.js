@@ -1,8 +1,24 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useState} from "react";
 import Formulario from "./components/Formulario";
+import Appoint from "./components/Appoint";
+
 
 
 function App() {
+
+  /**
+   * Arreglo de citas
+   */
+  const [appoints, modifiAppoints ] = useState([]);
+
+  //Funcion para guardar tanto la nueva cita como la antigua cita
+  const createAppoint = cita => {
+    modifiAppoints([
+      ...appoints,
+      cita
+    ]); 
+  }
+
   return (
     <Fragment>
       <div className="container">
@@ -13,12 +29,23 @@ function App() {
        
         <div className="column-1">
           <div>
-            <Formulario />
+          <h2>Create Appointment</h2>
+            <Formulario 
+              createAppoint={createAppoint}// Esto es un Prop
+            />
           </div>
         </div>
 
         <div className="column-2">
-          <p>Columna2</p>
+          
+          <div>
+            {appoints.map(appoint => (
+              <Appoint
+              key={appoint.id} 
+              appoint={appoint}
+              />
+            ))}
+          </div>
         </div>
 
 
