@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from "react";
+import {v4 as uuidv4} from 'uuid';// Esto es una libreria que ayuda a crear id se uso (nmp i uuid) en la consola
 
 const Formulario = () => {
 
@@ -39,9 +40,12 @@ const submitAppoint = e =>{
         return;
     }
 
-    
-    
+    // Eliminar mensaje de error
+    modifyError(false);
+
     //Asignar un ID
+    appoint.id =  uuidv4();//Aca llamo la libreria para crear id, esto para cuando la estemos listando para el agendamiento necesitan el "key" ya que es un elemento unico
+    // console.log(appoint);
 
 
     // Crear la cita --- colocarla en el state principal
