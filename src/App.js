@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useState, useEffect} from "react";// {  } lo que esta dentro de los corchetes es un HOOK!!
 import Formulario from "./components/Formulario";
 import Appoint from "./components/Appoint";
 
@@ -7,9 +7,29 @@ import Appoint from "./components/Appoint";
 function App() {
 
   /**
+   * Local Storage
+   */
+
+  let initialAppoints = JSON.parse(localStorage.getItem('appoints'));
+  if(!initialAppoints){
+    initialAppoints = []; 
+  }
+
+  /**
    * Arreglo de citas
    */
-  const [appoints, modifiAppoints ] = useState([]);
+  const [appoints, modifiAppoints ] = useState(initialAppoints);
+
+  /**
+   * Use Effect para realizar algunas operaciones cuando el state cambia, (useEffecto) no tiene nada que ve con almacenar en el storage, basicamente se recarga automaticamente cada vez que el state cambie 
+   */
+  useEffect( () => {
+    if(initialAppoints){
+      localStorage.setItem('appoints',JSON.stringify(appoints));
+    } else {
+      localStorage.setItem('appoints',JSON.stringify([]));
+    }
+  }, [appoints]); 
 
   //Funcion para guardar tanto la nueva cita como la antigua cita
   const createAppoint = cita => {
@@ -30,7 +50,7 @@ function App() {
   }
 
   // Mensaje condicional
-  console.log(appoints.length)
+  // console.log(appoints.length)
   const titleAppoints = appoints.length === 0 ? "No appointments" :"Manage your Appointments";
 
   return (
