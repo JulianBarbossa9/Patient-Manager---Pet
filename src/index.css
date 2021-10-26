@@ -18,6 +18,10 @@ h2{
   text-align: center;
 }
 
+span{
+  font-weight: lighter;
+}
+
 .container{
   display: grid;
   max-width: 100%;
@@ -80,7 +84,7 @@ label {
 }
 
 .date,
-  .hour{
+.hour{
   display: flex;
   /* flex-direction: column; */
   width: 250px;
@@ -135,6 +139,35 @@ label {
   border: 1px black solid;
   text-align: center;
 }
+
+.appoints{
+  /* display: flex;
+  flex-direction: column; */
+  color: black;
+  background-color: white;
+  border-radius: 8%;
+  padding: 10px 20px;
+  margin:20px 10px;
+}
+
+.button-delete{
+  font-size: 15px;
+  font-family:'Roboto Slab', serif; ;
+  height: 30px;
+  width: 100px;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(194, 24, 24, 0);
+}
+
+.button-delete:hover{
+ 
+  background-color: red;
+  transition: 2s;
+}
+
+
 
 /* .lista-citas .media {
   border-bottom: 1px solid #e1e1e1;

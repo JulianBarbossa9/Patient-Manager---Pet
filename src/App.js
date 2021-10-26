@@ -19,9 +19,24 @@ function App() {
     ]); 
   }
 
+  //1
+  //2
+  //3 --- id = 2 || appoint.id !== 2
+
+  // Función que elimina una cita por el id ---- Es decir que me traiga los id diferentes y que no sea diferente eliminemelo
+  const eliminarAppoint = id => {
+    const auxAppoints = appoints.filter(appoint => appoint.id !== id);
+    modifiAppoints(auxAppoints);
+  }
+
+  // Mensaje condicional
+  console.log(appoints.length)
+  const titleAppoints = appoints.length === 0 ? "No appointments" :"Manage your Appointments";
+
   return (
     <Fragment>
       <div className="container">
+
         <div className="title">
           <h1>Patient Manager</h1>
         </div>
@@ -39,10 +54,12 @@ function App() {
         <div className="column-2">
           
           <div>
+          <h2>{titleAppoints}</h2>
             {appoints.map(appoint => (
               <Appoint
               key={appoint.id} 
               appoint={appoint}
+              eliminarAppoint={eliminarAppoint}
               />
             ))}
           </div>

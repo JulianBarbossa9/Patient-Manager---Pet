@@ -1,15 +1,22 @@
-import React, {Fragment} from "react";// imr
+import React from "react";// imr
 
-const Appoint = () => {
-    return (  
-        <Fragment>
-             <h2>Manage your Appointments</h2>
-
+const Appoint = ({appoint,eliminarAppoint}) => ( //deleteAppoint
+    
+    
              <div className="appoints">
-                <p>Pet: <span></span></p>
+                <p>Pet : <span>{appoint.pet}</span></p>
+                <p>Name Owner : <span>{appoint.ownerName}</span></p>
+                <p>Date : <span>{appoint.date}</span></p>
+                <p>Hour : <span>{appoint.hour}</span></p>
+                <p>Symptom : <span>{appoint.symptom}</span></p>
+
+                <button
+                    className="button-delete"
+                    onClick = { () => eliminarAppoint(appoint.id)}// Tiene que ser arrow fucntion para que espere a que pase el oneclick
+                >Delete</button>
              </div>
-        </Fragment>
+       
     );
-}
+
  
 export default Appoint;
